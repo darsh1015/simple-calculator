@@ -17,12 +17,12 @@ int main() {
 
     switch(choice) {
         case 1:
-            result = a - b;   // BUG: Should be a + b
+            result = a + b;   // BUG: Should be a + b
             printf("Result = %d", result);
             break;
 
         case 2:
-            result = a + b;   // BUG: Should be a - b
+            result = a - b;   // BUG: Should be a - b
             printf("Result = %d", result);
             break;
 
@@ -32,13 +32,18 @@ int main() {
             // BUG: Missing break
 
         case 4:
+        if(b!=0){
             result = a / b;   // BUG: No check for division by zero
             printf("Result = %d", result);
+        }
+        else {
+            printf("b is zero division not possible");
+        }
             break;
 
         default:
             printf("Invalid Choice");
     }
 
-    return 1;   // BUG: Normally return 0
+    return 0;   // BUG: Normally return 0
 }
